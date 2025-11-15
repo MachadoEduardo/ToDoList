@@ -2,7 +2,7 @@ import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { ArrowBigRightDash } from 'lucide-react';
-import welcomeAvatar from '../assets/welcomeAvatar.jpg';
+import welcomeAvatar from '../assets/welcomeAvatar.png';
 
 export default function Welcome({
     canRegister = true,
@@ -20,12 +20,15 @@ export default function Welcome({
                     rel="stylesheet"
                 />
             </Head>
-            <div className='absolute top-76 right-20 w-32 h-32 bg-primary blur-3xl rounded-full z-0 opacity-40'></div>
-            <div className='absolute top-23 left-20 w-32 h-32 bg-green-500 blur-3xl rounded-full z-0 opacity-40'></div>
-            <div className='absolute top-110 left-120 w-32 h-32 bg-blue-500 blur-3xl rounded-full z-0 opacity-40'></div>
-            <div className='absolute top-0 right-100 w-32 h-32 bg-yellow-500 blur-3xl rounded-full z-0 opacity-40'></div>
-            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a] z-10">
-                <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
+
+            <>
+                <Blob className="animate-float top-[40px] right-[90px] sm:right-[170px] bg-primary" />
+                <Blob className="animate-float-delayed bottom-[90px] left-[60px] bg-green-500" />
+                <Blob className="animate-float-slow top-[100px] left-[0px] bg-blue-500" />
+                <Blob className="animate-float bottom-[300px] right-[100px] sm:right-[170px] bg-yellow-500" />
+            </>
+            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] m-5 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
+                <header className="mb-6 w-full text-sm not-has-[nav]:hidden lg:max-w-4xl">
                     <nav className="flex items-end justify-end gap-4">
                         {auth.user ? (
                             <Link
@@ -56,7 +59,7 @@ export default function Welcome({
                 </header>
                 <main className="flex flex-col items-center justify-center text-center font-lexend">
                     <img
-                        className="h-9/12 w-50 xl:h-auto"
+                        className="w-full max-w-xs h-auto mx-auto"
                         src={welcomeAvatar}
                         alt="Avatar lendo livro"
                     />
@@ -70,7 +73,7 @@ export default function Welcome({
                     </p>
                     <Link
                         href=""
-                        className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground active:scale-90 active:shadow-sm"
+                        className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground hover:scale-105 active:scale-90 active:shadow-sm"
                     >
                         Vamos começar
                         <ArrowBigRightDash className="absolute right-5" />
@@ -79,5 +82,13 @@ export default function Welcome({
                 <div className="hidden h-14.5 lg:block"></div>
             </div>
         </>
+    );
+}
+
+function Blob({ className }: { className: string }) {
+    return (
+        <div
+            className={`absolute h-32 w-32 xl:h-48 xl:w-48 rounded-full opacity-40 blur-3xl ${className}`}
+        ></div>
     );
 }
