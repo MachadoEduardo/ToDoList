@@ -9,14 +9,18 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
+import BackgroundBlobs from '@/components/background-circles';
 
 export default function Register() {
     return (
         <AuthLayout
-            title="Create an account"
-            description="Enter your details below to create your account"
+            title="Crie sua conta"
+            description="Insira suas informações abaixo para criar sua conta!"
         >
-            <Head title="Register" />
+            <Head title="Registro" />
+           
+            <BackgroundBlobs></BackgroundBlobs>
+
             <Form
                 {...store.form()}
                 resetOnSuccess={['password', 'password_confirmation']}
@@ -27,7 +31,7 @@ export default function Register() {
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
+                                <Label htmlFor="name">Nome</Label>
                                 <Input
                                     id="name"
                                     type="text"
@@ -36,7 +40,7 @@ export default function Register() {
                                     tabIndex={1}
                                     autoComplete="name"
                                     name="name"
-                                    placeholder="Full name"
+                                    placeholder="Nome Completo"
                                 />
                                 <InputError
                                     message={errors.name}
@@ -45,7 +49,9 @@ export default function Register() {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">
+                                    Endereço de e-mail
+                                </Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -53,13 +59,13 @@ export default function Register() {
                                     tabIndex={2}
                                     autoComplete="email"
                                     name="email"
-                                    placeholder="email@example.com"
+                                    placeholder="e-mail@exemplo.com"
                                 />
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="password">Password</Label>
+                                <Label htmlFor="password">Senha</Label>
                                 <Input
                                     id="password"
                                     type="password"
@@ -67,14 +73,14 @@ export default function Register() {
                                     tabIndex={3}
                                     autoComplete="new-password"
                                     name="password"
-                                    placeholder="Password"
+                                    placeholder="Senha"
                                 />
                                 <InputError message={errors.password} />
                             </div>
 
                             <div className="grid gap-2">
                                 <Label htmlFor="password_confirmation">
-                                    Confirm password
+                                    Confirme sua senha
                                 </Label>
                                 <Input
                                     id="password_confirmation"
@@ -83,7 +89,7 @@ export default function Register() {
                                     tabIndex={4}
                                     autoComplete="new-password"
                                     name="password_confirmation"
-                                    placeholder="Confirm password"
+                                    placeholder="Confirme sua senha"
                                 />
                                 <InputError
                                     message={errors.password_confirmation}
@@ -91,20 +97,20 @@ export default function Register() {
                             </div>
 
                             <Button
-                                type="submit"
+                                type="submit"                              
                                 className="mt-2 w-full"
                                 tabIndex={5}
                                 data-test="register-user-button"
                             >
                                 {processing && <Spinner />}
-                                Create account
+                                Começar a anotar!
                             </Button>
                         </div>
 
                         <div className="text-center text-sm text-muted-foreground">
-                            Already have an account?{' '}
+                            Você já possui uma conta?{' '}
                             <TextLink href={login()} tabIndex={6}>
-                                Log in
+                                Faça login
                             </TextLink>
                         </div>
                     </>
@@ -113,3 +119,4 @@ export default function Register() {
         </AuthLayout>
     );
 }
+

@@ -3,6 +3,8 @@ import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { ArrowBigRightDash } from 'lucide-react';
 import welcomeAvatar from '../assets/welcomeAvatar.png';
+import BackgroundBlobs from '@/components/background-circles';
+import { Button } from '@/components/ui/button';
 
 export default function Welcome({
     canRegister = true,
@@ -21,12 +23,8 @@ export default function Welcome({
                 />
             </Head>
 
-            <>
-                <Blob className="animate-float top-[40px] right-[90px] sm:right-[170px] bg-primary" />
-                <Blob className="animate-float-delayed bottom-[90px] left-[60px] bg-green-500" />
-                <Blob className="animate-float-slow top-[100px] left-[0px] bg-blue-500" />
-                <Blob className="animate-float bottom-[300px] right-[100px] sm:right-[170px] bg-yellow-500" />
-            </>
+            <BackgroundBlobs></BackgroundBlobs>
+
             <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] m-5 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
                 <header className="mb-6 w-full text-sm not-has-[nav]:hidden lg:max-w-4xl">
                     <nav className="flex items-end justify-end gap-4">
@@ -71,8 +69,10 @@ export default function Welcome({
                         você a gerenciar suas tarefas de maneira fácil e
                         otimizada!
                     </p>
+                    
+                    
                     <Link
-                        href=""
+                        href={register()}
                         className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground hover:scale-105 active:scale-90 active:shadow-sm"
                     >
                         Vamos começar
@@ -82,13 +82,5 @@ export default function Welcome({
                 <div className="hidden h-14.5 lg:block"></div>
             </div>
         </>
-    );
-}
-
-function Blob({ className }: { className: string }) {
-    return (
-        <div
-            className={`absolute h-32 w-32 xl:h-48 xl:w-48 rounded-full opacity-40 blur-3xl ${className}`}
-        ></div>
     );
 }
