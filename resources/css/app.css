@@ -165,4 +165,14 @@
     .animate-float-slow {
         animation: float 10s ease-in-out infinite;
     }
+
+    @keyframes xbounce {
+        0% {transform: translate(0,0);}
+        50% {transform: translate(10px, 0px);}
+        100% {transform: translate(0,0);}
+    }
+
+    .animate-xbounce{
+        animation: xbounce 2s ease-in-out infinite;
+    }
 }

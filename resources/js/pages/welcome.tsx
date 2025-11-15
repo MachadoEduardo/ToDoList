@@ -4,7 +4,7 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { ArrowBigRightDash } from 'lucide-react';
 import welcomeAvatar from '../assets/welcomeAvatar.png';
 import BackgroundBlobs from '@/components/background-circles';
-import { Button } from '@/components/ui/button';
+import Typewriter from "typewriter-effect"
 
 export default function Welcome({
     canRegister = true,
@@ -61,9 +61,11 @@ export default function Welcome({
                         src={welcomeAvatar}
                         alt="Avatar lendo livro"
                     />
+                    
                     <p className="mb-5 text-2xl font-semibold text-black">
-                        Gerenciador de Tarefas e To-Do List
+                        <Typewriter options={{strings: ["Gerenciador de Tarefas e To-Do List", "Organize seu dia a dia!", "Monte seu segundo cérebro!", "Nós listamos e você realiza."], loop: true, autoStart:true, cursor: '_', delay: 75}}/>
                     </p>
+
                     <p className="font-lexend font-light text-secondary">
                         Essa ferramenta de produtividade é feita para ajudar
                         você a gerenciar suas tarefas de maneira fácil e
@@ -76,7 +78,7 @@ export default function Welcome({
                         className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground hover:scale-105 active:scale-90 active:shadow-sm"
                     >
                         Vamos começar
-                        <ArrowBigRightDash className="absolute right-5" />
+                        <ArrowBigRightDash className="absolute right-5 animate-xbounce" />
                     </Link>
                 </main>
                 <div className="hidden h-14.5 lg:block"></div>

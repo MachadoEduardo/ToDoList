@@ -21,7 +21,7 @@ export default function AuthSimpleLayout({
                     <div className="flex flex-col items-center gap-4">
                         <Link
                             href={home()}
-                            className="flex flex-col items-center gap-2 font-medium"
+                            className="flex flex-col items-center gap-2 font-medium hover:scale-90"
                         >
                             <div className="mb-1 flex h-56 w-56 items-center justify-center rounded-md">
                                 <AppLogoIcon className="size-9 fill-current text-[var(--foreground)] dark:text-white" />
@@ -30,6 +30,7 @@ export default function AuthSimpleLayout({
                         </Link>
 
                         <div className="space-y-2 text-center font-lexend">
+                            
                             <h1 className="text-3xl font-semibold">{title}</h1>
                             <p className="text-center text-sm text-muted-foreground text-secondary">
                                 {description}
