@@ -31,7 +31,7 @@ export default function Welcome({
                         {auth.user ? (
                             <Link
                                 href={dashboard()}
-                                className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                className="inline-block rounded-sm z-20 border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                             >
                                 Dashboard
                             </Link>
@@ -39,7 +39,7 @@ export default function Welcome({
                             <>
                                 <Link
                                     href={login()}
-                                    className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
+                                    className="inline-block rounded-sm z-20 border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
                                 >
                                     Login
                                 </Link>
@@ -62,9 +62,9 @@ export default function Welcome({
                         alt="Avatar lendo livro"
                     />
                     
-                    <p className="mb-5 text-2xl font-semibold text-black">
+                    <div className="mb-5 text-2xl font-semibold text-black">
                         <Typewriter options={{strings: ["Gerenciador de Tarefas e To-Do List", "Organize seu dia a dia!", "Monte seu segundo cérebro!", "Nós listamos e você realiza."], loop: true, autoStart:true, cursor: '_', delay: 75}}/>
-                    </p>
+                    </div>
 
                     <p className="font-lexend font-light text-secondary">
                         Essa ferramenta de produtividade é feita para ajudar
