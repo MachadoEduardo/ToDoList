@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('app', [TaskController::class, 'index'])->name('dashboard');
+    Route::post('tasks', [TaskController::class, 'store'])->name('tasks.store');
 });
 
 require __DIR__.'/settings.php';

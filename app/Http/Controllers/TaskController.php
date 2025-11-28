@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Settings\TaskStoreRequest;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,4 +17,18 @@ class TaskController extends Controller
             'tasks' => $tasks
         ]);
     }
+
+    public function store (TaskStoreRequest $request)
+    {
+        $validated = $request->validated();
+
+        $task = Task::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'] ?? null,
+            'priority' => $validated['priority'] ?? 'low',
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('dashboard');
+    }   
 }

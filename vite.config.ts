@@ -24,4 +24,22 @@ export default defineConfig({
     esbuild: {
         jsx: 'automatic',
     },
+    server: {
+        watch: {
+            ignored: [
+            '**/vendor/**',
+            '**/storage/**',
+            '**/node_modules/**'
+            ],
+            usePolling: true,
+        },
+        host: true,
+        port: 5173,
+        strictPort: true,
+        hmr: {
+            host: 'localhost',
+            protocol: 'ws',
+            port: 5173,
+        },
+    },
 });
