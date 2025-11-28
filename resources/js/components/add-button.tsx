@@ -4,7 +4,7 @@ export default function AddButton({ onClick }) {
     return (
         <CirclePlus
             onClick={onClick}
-            className="cursor-pointer hover:scale-110 transition-all"
+            className="cursor-pointer hover:scale-110 transition-all text-primary"
             size={40}
         />
     );

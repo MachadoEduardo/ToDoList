@@ -2,6 +2,7 @@ import AddButton from '@/components/add-button';
 import BackgroundBlobs from '@/components/background-circles';
 import Modal from '@/components/modal';
 import SearchBar from '@/components/search-bar';
+import { Input } from '@/components/ui/input';
 import { Head, useForm } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
@@ -29,12 +30,12 @@ export default function Dashboard({ tasks }) {
                 </li>
                 <li
                     className={
-                        'ml-auto px-2 font-lexend w-fit rounded-xl' +
+                        'ml-auto w-fit rounded-xl px-2 font-lexend' +
                         (task.priority === 'high'
                             ? ' bg-red-200 text-red-500'
                             : task.priority === 'medium'
                               ? ' bg-yellow-200 text-yellow-500'
-                              : '  bg-green-200 text-green-800')
+                              : ' bg-green-200 text-green-800')
                     }
                 >
                     {task.priority === 'high'
@@ -80,12 +81,16 @@ export default function Dashboard({ tasks }) {
                         To Do List
                     </span>
 
-                    <SearchBar onChange={SearchTasks} />
+                    <div className="flex">
+                        <SearchBar onChange={SearchTasks} />
+                        <div className="ml-auto px-2">
+                            <AddButton onClick={() => setOpenModal(true)} />
+                        </div>
+                    </div>
 
                     <ul>{listTasks}</ul>
                 </div>
 
-                <AddButton onClick={() => setOpenModal(true)} />
                 <Modal open={openModal} onClose={() => setOpenModal(false)}>
                     <h2 className="mb-4 text-xl font-bold">
                         Criar nova tarefa
@@ -93,18 +98,18 @@ export default function Dashboard({ tasks }) {
 
                     <form onSubmit={submit} className="flex flex-col gap-2">
                         <label htmlFor="title">Título</label>
-                        <input
+                        <Input
                             type="text"
                             placeholder="Título"
-                            className="rounded-sm border border-black p-0.5"
+                            className="px-1"
                             value={data.title}
                             onChange={(e) => setData('title', e.target.value)}
                         />
                         <label htmlFor="description">Descrição</label>
-                        <input
+                        <Input
                             type="text"
                             placeholder="Descrição"
-                            className="rounded-sm border border-black p-0.5"
+                            className="px-1"
                             value={data.description}
                             onChange={(e) =>
                                 setData('description', e.target.value)
@@ -113,12 +118,14 @@ export default function Dashboard({ tasks }) {
                         <label htmlFor="description">Prioridade</label>
                         <select
                             value={data.priority}
-                            className="rounded-sm border border-black p-0.5"
+                            className="flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs shadow-primary transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground hover:scale-99 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                             onChange={(e) =>
                                 setData('priority', e.target.value)
                             }
                         >
-                            <option value="">Selecione a prioridade</option>
+                            <option value="" className="">
+                                Selecione a prioridade
+                            </option>
                             <option value="low">Baixa</option>
                             <option value="medium">Média</option>
                             <option value="high">Alta</option>
@@ -126,7 +133,6 @@ export default function Dashboard({ tasks }) {
                         <button
                             type="submit"
                             disabled={processing}
-                            onClick={() => setConfirmationSubmit(true)}
                             className="mt-4 rounded-sm bg-primary p-2 font-lexend text-white hover:cursor-pointer hover:bg-primary-foreground disabled:opacity-50"
                         >
                             Criar

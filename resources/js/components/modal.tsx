@@ -6,7 +6,7 @@ export default function Modal({ open, onClose, children }) {
             <div className="bg-white p-6 rounded shadow-lg w-96 relative">
                 
                 <button
-                    className="absolute top-2 right-2 text-gray-500"
+                    className="absolute top-2 right-2 text-primary hover:cursor-pointer hover:scale-110"
                     onClick={onClose}
                 >
                     ✖
