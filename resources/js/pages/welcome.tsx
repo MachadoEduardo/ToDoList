@@ -39,14 +39,16 @@ export default function Welcome({
                             <>
                                 <Link
                                     href={login()}
-                                    className="inline-block rounded-sm z-20 border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
+                                    className="inline-block rounded-sm z-20 border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]
+                                    dark:hover:scale-110 dark:hover:bg-primary dark:hover:text-black transition-all"
                                 >
                                     Login
                                 </Link>
                                 {canRegister && (
                                     <Link
                                         href={register()}
-                                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]
+                                        dark:hover:scale-110 dark:hover:bg-primary dark:hover:text-black transition-all"
                                     >
                                         Comece agora
                                     </Link>
@@ -62,11 +64,11 @@ export default function Welcome({
                         alt="Avatar lendo livro"
                     />
                     
-                    <div className="mb-5 text-2xl font-semibold text-black">
+                    <div className="mb-5 text-2xl font-semibold text-black dark:text-white">
                         <Typewriter options={{strings: ["Gerenciador de Tarefas e To-Do List", "Organize seu dia a dia!", "Monte seu segundo cérebro!", "Nós listamos e você realiza."], loop: true, autoStart:true, cursor: '_', delay: 75}}/>
                     </div>
 
-                    <p className="font-lexend font-light text-secondary">
+                    <p className="font-lexend font-light text-secondary dark:text-secondary">
                         Essa ferramenta de produtividade é feita para ajudar
                         você a gerenciar suas tarefas de maneira fácil e
                         otimizada!
@@ -75,7 +77,8 @@ export default function Welcome({
                     
                     <Link
                         href={register()}
-                        className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground hover:scale-105 active:scale-90 active:shadow-sm"
+                        className="relative m-5 flex w-full max-w-2xs justify-center rounded-xl bg-primary p-2 font-semibold text-white shadow-lg shadow-primary-foreground transition-transform hover:bg-primary-foreground hover:scale-105 active:scale-90 active:shadow-sm
+                        dark:text-black dark:hover:bg-secondary"
                     >
                         Vamos começar
                         <ArrowBigRightDash className="absolute right-5 animate-xbounce" />

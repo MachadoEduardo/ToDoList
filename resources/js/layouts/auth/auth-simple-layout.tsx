@@ -31,8 +31,8 @@ export default function AuthSimpleLayout({
 
                         <div className="space-y-2 text-center font-lexend">
                             
-                            <h1 className="text-3xl font-semibold">{title}</h1>
-                            <p className="text-center text-sm text-muted-foreground text-secondary">
+                            <h1 className="text-3xl font-semibold dark:text-white">{title}</h1>
+                            <p className="text-center text-sm text-muted-foreground text-secondary dark:text-secondary">
                                 {description}
                             </p>
                         </div>
