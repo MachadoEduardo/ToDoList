@@ -10,7 +10,7 @@ export function TaskCard({ task }: { task: any }) {
         setIsFinished(true); // atualiza UI imediatamente
         setTimeout(() => {
             router.patch(`/tasks/${task.id}/finish`);
-        }, 1700); // aguarda 2 segundos antes de enviar a requisição
+        }, 1100); // aguarda 2 segundos antes de enviar a requisição
     }
 
     return (

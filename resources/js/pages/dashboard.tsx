@@ -10,6 +10,7 @@ import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
 import { Link } from '@inertiajs/react';
 import { logout } from '@/routes';
 import { LogOut } from 'lucide-react';
+import PageSidebar from '@/components/Dashboard/Sidebar';
 
 export default function Dashboard({ tasks, message }: { tasks: any[] }) {
     const [openModal, setOpenModal] = useState(false);
@@ -27,6 +28,8 @@ export default function Dashboard({ tasks, message }: { tasks: any[] }) {
         <>
             <Head title="Bem-vindo" />
             <BackgroundBlobs />
+            <PageSidebar/>
+
             <PageLayout>
                 <span className="mt-10 mb-5 text-center font-lexend text-3xl dark:text-white">To Do List</span>
 
@@ -45,7 +48,7 @@ export default function Dashboard({ tasks, message }: { tasks: any[] }) {
 
                 <TaskList tasks={filteredTasks} />
 
-                {/* <div className="flex flex-col max-w-32 w-20 mt-4 ml-auto">
+                {/* <div className="flex flex-row max-w-32 w-20 mt-4 ml-auto">
                     <Link
                         className="block w-full hover:cursor-pointer dark:text-white dark:hover:text-secondary"
                         href={logout()}
