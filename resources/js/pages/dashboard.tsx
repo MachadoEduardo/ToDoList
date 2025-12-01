@@ -11,7 +11,7 @@ import { Link } from '@inertiajs/react';
 import { logout } from '@/routes';
 import { LogOut } from 'lucide-react';
 
-export default function Dashboard({ tasks }: { tasks: any[] }) {
+export default function Dashboard({ tasks, message }: { tasks: any[] }) {
     const [openModal, setOpenModal] = useState(false);
     const [search, setSearch] = useState('');
 
@@ -28,7 +28,7 @@ export default function Dashboard({ tasks }: { tasks: any[] }) {
             <Head title="Bem-vindo" />
             <BackgroundBlobs />
             <PageLayout>
-                <span className="m-4 text-center font-lexend text-3xl dark:text-white">To Do List</span>
+                <span className="mt-10 mb-5 text-center font-lexend text-3xl dark:text-white">To Do List</span>
 
                 <DashboardHeader
                     search={search}
@@ -37,9 +37,15 @@ export default function Dashboard({ tasks }: { tasks: any[] }) {
                     className="top-0"
                 />
 
+                {message && (
+                <div className="dark:text-white my-4">
+                    {message}
+                </div>
+                )}
+
                 <TaskList tasks={filteredTasks} />
 
-                <div className="flex flex-col max-w-32 w-20 mt-4 ml-auto">
+                {/* <div className="flex flex-col max-w-32 w-20 mt-4 ml-auto">
                     <Link
                         className="block w-full hover:cursor-pointer dark:text-white dark:hover:text-secondary"
                         href={logout()}
@@ -50,7 +56,7 @@ export default function Dashboard({ tasks }: { tasks: any[] }) {
                         Log out
                         <LogOut className="mr-2" />
                     </Link>
-                </div>
+                </div> */}
             </PageLayout>
 
             <CreateTaskModal open={openModal} onClose={() => setOpenModal(false)} />

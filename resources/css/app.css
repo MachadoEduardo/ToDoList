@@ -166,13 +166,12 @@
         animation: float 10s ease-in-out infinite;
     }
 
-    @keyframes xbounce {
+    @keyframes fadeout {
         0% {transform: translate(0,0);}
-        50% {transform: translate(10px, 0px);}
-        100% {transform: translate(0,0);}
+        100% {transform: translate(70vh,0); opacity: 10%; }
     }
 
-    .animate-xbounce{
-        animation: xbounce 2s ease-in-out infinite;
+    .animate-fadeout{
+        animation: fadeout 2s ease-in-out infinite;
     }
 }
