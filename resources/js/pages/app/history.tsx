@@ -23,15 +23,8 @@ export default function Dashboard({ tasks, message }: { tasks: any[], message?: 
             <PageLayout>
                 <span className="mt-10 mb-5 text-center font-lexend text-3xl dark:text-white">To Do List</span>
 
-                <DashboardHeader
-                    search={search}
-                    onSearchChange={setSearch}
-                    onAddClick={() => setOpenModal(true)}
-                    className="top-0"
-                />
-
                 {message && (
-                <div className="dark:text-white my-4 text-center    ">
+                <div className="dark:text-white my-4 text-center">
                     {message}
                 </div>
                 )}

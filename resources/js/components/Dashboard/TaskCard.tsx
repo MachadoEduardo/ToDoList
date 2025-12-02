@@ -14,14 +14,14 @@ export function TaskCard({ task }: { task: any }) {
     }
 
     return (
-        <div className={`my-4 relative flex flex-col p-5 border rounded-md shadow-xl dark:bg-card-foreground
+        <div className={`my-4 relative flex flex-col p-5 border rounded-md shadow-xl dark:bg-card-foreground 
         ${isFinished ? 'animate-fadeout' : ''}`}>
             <h3 className="font-lexend uppercase dark:text-white">{task.title}</h3>
-            <p className="font-lexend text-secondary">{task.description}</p>
+            <p className="font-lexend text-secondary whitespace-normal wrap-break-word">{task.description}</p>
             <TaskPriorityBadge priority={task.priority} />
             <button
                 onClick={taskFinished}
-                className={`absolute right-5 rounded-full h-4 w-4 border-2 ${
+                className={`absolute left-5 bottom-3 sm:right-5 sm:top-3 sm:left-auto rounded-full h-4 w-4 border-2 ${
                     isFinished ? 'bg-green-500 border-green-700' : 'border-gray-400'
                 }`}
             />

@@ -35,8 +35,8 @@ export default function PageSidebar() {
                 <div className='text-left px-5 py-14'>
                     <h2 className='text-lg font-bold'>Suas tarefas</h2>
                     <div className="pl-6 flex flex-col">
-                        <Link href={'app'} className='hover:text-secondary dark:hover:text-chart-4'>Geral</Link>
-                        <Link href={'tasks/history'} className='hover:text-secondary dark:hover:text-chart-4'>Tarefas concluídas</Link>
+                        <Link href={'/app'} className='hover:text-secondary dark:hover:text-chart-4'>Geral</Link>
+                        <Link href={'/tasks/history'} className='hover:text-secondary dark:hover:text-chart-4'>Tarefas concluídas</Link>
                     </div>
                 </div>
                 
