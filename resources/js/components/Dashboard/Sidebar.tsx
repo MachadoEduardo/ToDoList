@@ -1,18 +1,30 @@
 import { Sidebar } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from '@inertiajs/react';
+import { logout } from '@/routes';
+import { LogOut } from 'lucide-react';
+import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
+import { router } from '@inertiajs/react';
 
 export default function PageSidebar() {
     const [isOpen, setIsOpen] = useState(false);
+    const cleanup = useMobileNavigation();
+
+    const handleLogout = () => {
+        cleanup();
+        router.flushAll();
+    };
 
     return (
         <div>
-            {/* Ícone para abrir/fechar */}
             <Sidebar
-                className='absolute left-4 top-4 text-primary dark:text-chart-4 cursor-pointer z-40'
+                className={`
+                absolute left-4 top-4 cursor-pointer z-50
+                text-primary dark:text-white
+                ${isOpen ? 'dark:stroke-black' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
             />
 
-            {/* Sidebar */}
             <div
                 className={`
                     fixed top-0 left-0 h-full w-64 text-black bg-white shadow-lg border-r border-primary
@@ -23,13 +35,27 @@ export default function PageSidebar() {
                 <div className='text-left px-5 py-14'>
                     <h2 className='text-lg font-bold'>Suas tarefas</h2>
                     <div className="pl-6 flex flex-col">
-                        <a href='' className='hover:text-secondary dark:hover:text-chart-4'>Geral</a>
-                        <a href='' className='hover:text-secondary dark:hover:text-chart-4'>Tarefas concluídas</a>
+                        <Link href={'app'} className='hover:text-secondary dark:hover:text-chart-4'>Geral</Link>
+                        <Link href={'tasks/history'} className='hover:text-secondary dark:hover:text-chart-4'>Tarefas concluídas</Link>
                     </div>
                 </div>
+                
+                <Link
+                        className="w-full hover:cursor-pointer dark:text-black dark:hover:text-red-600 flex px-5 fixed bottom-10"
+                        href={logout()}
+                        as="button"
+                        onClick={handleLogout}
+                        data-test="logout-button"
+                    >
+                        <LogOut className="mr-2" />
+                        Sair                      
+                </Link>
             </div>
 
-            {/* Overlay opcional para fechar clicando fora */}
+            <div className="flex flex-row max-w-32 w-20 mt-4 ml-auto">
+                    
+                </div>
+
             {isOpen && (
                 <div
                     className='fixed inset-0 bg-black opacity-20 z-10 lg:hidden'

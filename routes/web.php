@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('app', [TaskController::class, 'index'])->name('dashboard');
+    Route::get('tasks/history', [TaskController::class, 'history'])->name('tasks.history');
     Route::post('tasks', [TaskController::class, 'store'])->name('tasks.store');
     Route::patch('tasks/{task}/finish', [TaskController::class, 'finish'])->name('tasks.finish');
     Route::delete('tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');

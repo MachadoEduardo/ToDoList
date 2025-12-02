@@ -16,8 +16,8 @@ export function TaskCard({ task }: { task: any }) {
     return (
         <div className={`my-4 relative flex flex-col p-5 border rounded-md shadow-xl dark:bg-card-foreground
         ${isFinished ? 'animate-fadeout' : ''}`}>
-            <li className="font-lexend uppercase dark:text-white">{task.title}</li>
-            <li className="font-lexend text-secondary">{task.description}</li>
+            <h3 className="font-lexend uppercase dark:text-white">{task.title}</h3>
+            <p className="font-lexend text-secondary">{task.description}</p>
             <TaskPriorityBadge priority={task.priority} />
             <button
                 onClick={taskFinished}
